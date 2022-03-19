@@ -24,12 +24,6 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-//void startAddNewMedication(BuildContext ctx) {
-//  showModalBottomSheet(context: ctx, builder: (_) {
-//    return NewMedication()
-//  },);
-//}
-
 class _MyHomePageState extends State<MyHomePage> {
 //******************************************************
   final List<Medication> _userMedications = [];
@@ -41,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
       String mxAddress,
       String mxPhone,
       String mxDosage,
-      String mxPrescriptionEnd) {
+      String mxPrescriptionLength) {
     final newMx = Medication(
       medicationName: mxMedicationName,
       prescribingPhysician: mxPrescribingPhysician,
@@ -49,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
       address: mxAddress,
       phone: mxPhone,
       dosage: mxDosage,
-      prescriptionEnd: mxPrescriptionEnd,
+      prescriptionLength: mxPrescriptionLength,
     );
 
     setState(() {
@@ -82,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
       context: ctx,
       builder: (_) {
         return GestureDetector(
-          onTap: () {},
+//          onTap: () {},
           child: NewMedication(_addNewMedication),
           behavior: HitTestBehavior.opaque,
         );
@@ -98,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
       context: ctx,
       builder: (_) {
         return GestureDetector(
-          onTap: () {},
+//          onTap: () {},
           child: NewMemoryTest(_addNewMemoryTest),
           behavior: HitTestBehavior.opaque,
         );
@@ -112,7 +106,6 @@ class _MyHomePageState extends State<MyHomePage> {
   void _deleteMedication(String medicationName) {
     setState(() {
       _userMedications.removeWhere((mx) => mx.medicationName == medicationName);
-      ;
     });
   }
 
@@ -122,7 +115,6 @@ class _MyHomePageState extends State<MyHomePage> {
   void _deleteMemoryTest(String memoryTestName) {
     setState(() {
       _userMemoryTests.removeWhere((mx) => mx.memoryTestName == memoryTestName);
-      ;
     });
   }
 
@@ -156,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     FloatingActionButton(
                       child: Icon(Icons.add),
-                      foregroundColor: Colors.black,
+                      foregroundColor: Colors.white,
                       tooltip: 'Add New Medication',
                       onPressed: () => _startAddNewMedication(context),
                     ),
@@ -166,11 +158,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           Container(
-            height: 150,
-            width: 100,
-            color: Colors.white,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
+            child: Row(
               children: <Widget>[
                 MedicationList(_userMedications, _deleteMedication),
               ],
@@ -201,7 +189,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     FloatingActionButton(
                       child: Icon(Icons.add),
-                      foregroundColor: Colors.black,
+                      foregroundColor: Colors.white,
                       tooltip: 'Add Memory Test',
                       onPressed: () => _startAddNewMemoryTest(context),
                     ),
@@ -210,13 +198,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          Container(
-            height: 150,
-            width: 50,
-            color: Colors.white,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: <Widget>[
+          SingleChildScrollView(
+            child: Row(
+              children: [
                 MemoryTestList(_userMemoryTests, _deleteMemoryTest),
               ],
             ),
@@ -244,7 +228,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     FloatingActionButton(
                       child: Icon(Icons.add),
-                      foregroundColor: Colors.black,
+                      foregroundColor: Colors.white,
                       tooltip: 'Add Transportation',
                       //*****************************************************
                       // add transportation here
@@ -292,7 +276,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     FloatingActionButton(
                       child: Icon(Icons.add),
-                      foregroundColor: Colors.black,
+                      foregroundColor: Colors.white,
                       tooltip: 'Add Other Resources',
                       //*****************************************************
                       // add transportation here

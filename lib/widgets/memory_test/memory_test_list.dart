@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:memorez_profile_resources/models/memory_test/memory_test.dart';
+import '../../models/memory_test/memory_test.dart';
 
 class MemoryTestList extends StatefulWidget {
   final List<MemoryTest> memoryTests;
@@ -22,9 +22,20 @@ class _MemoryTestListState extends State<MemoryTestList> {
       height: 130,
       child: widget.memoryTests.isEmpty
           ? Row(
-              children: const <Widget>[
-                Text(
-                  'No memory tests added.',
+              children: <Widget>[
+                Center(
+                  child: Container(
+                    width: 280,
+                    height: 140,
+                    child: Card(
+                      elevation: 15,
+                      child: Center(
+                        child: Text(
+                          'No memory tests added.',
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             )

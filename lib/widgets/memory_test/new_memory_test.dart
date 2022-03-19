@@ -39,17 +39,35 @@ class _NewMemoryTestState extends State<NewMemoryTest> {
       resizeToAvoidBottomInset: true,
       body: ListView(
         children: <Widget>[
-          TextField(
-            decoration: InputDecoration(labelText: 'Memory Test:'),
-            controller: _memoryTestNameController,
-            onSubmitted: (_) => _submitData(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: 'Memory Test',
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.blue, width: 2.0),
+                  borderRadius: BorderRadius.circular(25.0),
+                ),
+              ),
+              controller: _memoryTestNameController,
+              onSubmitted: (_) => _submitData(),
 //            onChanged: (val) => memoryTestNameInput,
+            ),
           ),
-          TextField(
-            decoration: InputDecoration(labelText: 'Memory Test Internet URL:'),
-            controller: _memoryTestUrlController,
-            onSubmitted: (_) => _submitData(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: 'Memory Test Internet URL',
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.blue, width: 2.0),
+                  borderRadius: BorderRadius.circular(25.0),
+                ),
+              ),
+              controller: _memoryTestUrlController,
+              onSubmitted: (_) => _submitData(),
 //            onChanged: (val) => memoryTestUrlInput,
+            ),
           ),
           TextButton(
             child: Text('Save'),

@@ -1,11 +1,13 @@
+import 'package:flutter/cupertino.dart';
+
 class Medication {
-  String medicationName;
-  String prescribingPhysician;
-  String pharmacy;
-  String address;
-  String phone;
-  String dosage;
-  String prescriptionEnd;
+  final String medicationName;
+  final String prescribingPhysician;
+  final String pharmacy;
+  final String address;
+  final String phone;
+  final String dosage;
+  final String prescriptionLength;
 
   Medication(
       {required this.medicationName,
@@ -14,5 +16,5 @@ class Medication {
       required this.address,
       required this.phone,
       required this.dosage,
-      required this.prescriptionEnd});
+      required this.prescriptionLength});
 }
