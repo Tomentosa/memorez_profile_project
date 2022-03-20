@@ -36,7 +36,7 @@ class MedicationList extends StatelessWidget {
     return Row(
       children: [
         Container(
-          height: 130,
+          height: 250,
           width: width,
           child: medications.isEmpty
               ? Center(
@@ -65,9 +65,66 @@ class MedicationList extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
-                            child: Text(
-                              'Medication: ${medications[index].medicationName}\n Physician: ${medications[index].prescribingPhysician}\n Pharmacy: ${medications[index].pharmacy}\n Address: ${medications[index].address}\n Phone: ${medications[index].phone}\n Dosage: ${medications[index].dosage}\n Prescription Length: ${medications[index].prescriptionLength}',
-                              style: TextStyle(fontSize: 11),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'Medication: ${medications[index].medicationName}\n',
+                                      style: TextStyle(fontSize: 11),
+                                    ),
+                                    IconButton(
+                                      icon: Icon(
+                                        Icons.edit,
+                                        color: Colors.blue,
+                                      ),
+                                      onPressed: () {
+                                        // do something
+                                      },
+                                    )
+                                  ],
+                                ),
+                                Text(
+                                  'Physician: ${medications[index].prescribingPhysician}\n ',
+                                  style: TextStyle(fontSize: 11),
+                                ),
+                                Text(
+                                  'Pharmacy: ${medications[index].pharmacy}\n ',
+                                  style: TextStyle(fontSize: 11),
+                                ),
+                                Text(
+                                  'Address: ${medications[index].address}\n ',
+                                  style: TextStyle(fontSize: 11),
+                                ),
+                                Text(
+                                  'Phone: ${medications[index].phone}\n',
+                                  style: TextStyle(fontSize: 11),
+                                ),
+                                Text(
+                                  'Dosage: ${medications[index].dosage}\n',
+                                  style: TextStyle(fontSize: 11),
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'Prescription Length: ${medications[index].prescriptionLength}',
+                                      style: TextStyle(fontSize: 11),
+                                    ),
+                                    IconButton(
+                                      icon: Icon(
+                                        Icons.delete_forever,
+                                        color: Colors.red,
+                                      ),
+                                      onPressed: () {
+                                        // do something
+                                      },
+                                    )
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
                         ),
