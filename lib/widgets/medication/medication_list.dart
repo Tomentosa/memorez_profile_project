@@ -32,11 +32,12 @@ class MedicationList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width= MediaQuery.of(context).size.width ;
     return Row(
       children: [
         Container(
           height: 130,
-          width: 280,
+          width: width,
           child: medications.isEmpty
               ? Center(
                   child: Container(
